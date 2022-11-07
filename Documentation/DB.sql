@@ -46,16 +46,16 @@ CREATE TABLE IF NOT EXISTS `student` (
   `user_id` INT NOT NULL,
   `lvl_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_student_user_idx` (`user_id` ASC) VISIBLE,
-  INDEX `fk_student_lvl1_idx` (`lvl_id` ASC) VISIBLE)
+  INDEX `fk_student_user_idx` (`user_id` ASC),
+  INDEX `fk_student_lvl1_idx` (`lvl_id` ASC))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `booking` (
   `slot_id` INT NOT NULL,
   `student_id` INT NOT NULL,
   PRIMARY KEY (`slot_id`, `student_id`),
-  INDEX `fk_slot_has_student_student1_idx` (`student_id` ASC) VISIBLE,
-  INDEX `fk_slot_has_student_slot1_idx` (`slot_id` ASC) VISIBLE)
+  INDEX `fk_slot_has_student_student1_idx` (`student_id` ASC),
+  INDEX `fk_slot_has_student_slot1_idx` (`slot_id` ASC))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `subject` (
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `slot_has_subject` (
   `subject_id` INT NOT NULL,
   `lvl_id` INT NOT NULL,
   PRIMARY KEY (`slot_id`, `subject_id`, `lvl_id`),
-  INDEX `fk_slot_has_subject_subject1_idx` (`subject_id` ASC) VISIBLE,
-  INDEX `fk_slot_has_subject_slot1_idx` (`slot_id` ASC) VISIBLE,
-  INDEX `fk_slot_has_subject_lvl1_idx` (`lvl_id` ASC) VISIBLE)
+  INDEX `fk_slot_has_subject_subject1_idx` (`subject_id` ASC),
+  INDEX `fk_slot_has_subject_slot1_idx` (`slot_id` ASC),
+  INDEX `fk_slot_has_subject_lvl1_idx` (`lvl_id` ASC))
 ENGINE = InnoDB;
