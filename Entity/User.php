@@ -11,8 +11,21 @@ class User {
         $this->db = $db;
     }
 
+    public function isExisting($email) {
+
+        /*
+    $query = "SELECT COUNT(*) as nb FROM user WHERE email=:email";
+    $stmt = $db->prepare($query);
+    $email = $data['email'];
+    $stmt->bindParam(":email", $email);
+            $stmt->execute();
+
+    $num = $stmt->fetchColumn(0);
+         */
+    }
+
     public function insert($data) {
-        if (isset($data['email']) && !empty($data['email']) /*&& !isExist($db, $data['email'])*/) {
+        if (isset($data['email']) && !empty($data['email']) && !$this->isExisting($data['email'])) {
             $email = $data['email'];
             $firstname = $data['firstname'];
             $lastname = $data['lastname'];
