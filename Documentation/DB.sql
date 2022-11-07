@@ -19,8 +19,8 @@ CREATE TABLE IF NOT EXISTS `slot` (
   `room_id` INT NOT NULL,
   `tutor_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_slot_room1_idx` (`room_id` ASC) VISIBLE,
-  INDEX `fk_slot_tutor1_idx` (`tutor_id` ASC) VISIBLE)
+  INDEX `fk_slot_room1_idx` (`room_id` ASC),
+  INDEX `fk_slot_tutor1_idx` (`tutor_id` ASC))
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `user` (
