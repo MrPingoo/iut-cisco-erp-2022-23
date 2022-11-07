@@ -1,0 +1,416 @@
+{
+	"info": {
+		"_postman_id": "2b44b40e-5ee1-4394-af98-b0c8ca9938a7",
+		"name": "IUT - TDD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12647426"
+	},
+	"item": [
+		{
+			"name": "Lvl",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api?ressource=Lvl&action=list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api"
+							],
+							"query": [
+								{
+									"key": "ressource",
+									"value": "Lvl"
+								},
+								{
+									"key": "action",
+									"value": "list"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Slot",
+			"item": [
+				{
+					"name": "Search",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"begin\": \"2022-10-01 11:00\",\n    \"end\": \"2022-10-01 12:00\",\n    \"student\": 10,\n    \"subjects\": [15, 12]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api?ressource=Slot&action=search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api"
+							],
+							"query": [
+								{
+									"key": "ressource",
+									"value": "Slot"
+								},
+								{
+									"key": "action",
+									"value": "search"
+								},
+								{
+									"key": "begin",
+									"value": "2022-09-01 11:00",
+									"disabled": true
+								},
+								{
+									"key": "end",
+									"value": "2022-09-01 11:00",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"John\",\n    \"lastname\": \"Doe\",\n    \"lvl\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api?ressource=Student&action=create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api"
+							],
+							"query": [
+								{
+									"key": "ressource",
+									"value": "Student"
+								},
+								{
+									"key": "action",
+									"value": "create"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api?ressource=Student&action=list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api"
+							],
+							"query": [
+								{
+									"key": "ressource",
+									"value": "Student"
+								},
+								{
+									"key": "action",
+									"value": "list"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subject",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api?ressource=Subject&action=list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api"
+							],
+							"query": [
+								{
+									"key": "ressource",
+									"value": "Subject"
+								},
+								{
+									"key": "action",
+									"value": "list"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"julian@codecodex.fr\",\n    \"password\": \"P@ssw0rd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api?ressource=User&action=login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api"
+							],
+							"query": [
+								{
+									"key": "ressource",
+									"value": "User"
+								},
+								{
+									"key": "action",
+									"value": "login"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"julian\",\n    \"lastname\": \"layen\",\n    \"email\": \"julian@codecodex.fr\",\n    \"password\": \"P@ssw0rd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api?ressource=User&action=register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api"
+							],
+							"query": [
+								{
+									"key": "ressource",
+									"value": "User"
+								},
+								{
+									"key": "action",
+									"value": "register"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api?ressource=User&action=Info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api"
+							],
+							"query": [
+								{
+									"key": "ressource",
+									"value": "User"
+								},
+								{
+									"key": "action",
+									"value": "Info"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"julian\",\n    \"lastname\": \"layen\",\n    \"email\": \"julian@codecodex.fr\",\n    \"password\": \"P@ssw0rd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api?ressource=User&action=patch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api"
+							],
+							"query": [
+								{
+									"key": "ressource",
+									"value": "User"
+								},
+								{
+									"key": "action",
+									"value": "patch"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"slot\": 1,\n    \"student\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api?ressource=Booking&action=create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api"
+							],
+							"query": [
+								{
+									"key": "ressource",
+									"value": "Booking"
+								},
+								{
+									"key": "action",
+									"value": "create"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of student's booking",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api?ressource=Slot&action=list&pasted=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api"
+							],
+							"query": [
+								{
+									"key": "ressource",
+									"value": "Slot"
+								},
+								{
+									"key": "action",
+									"value": "list"
+								},
+								{
+									"key": "pasted",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
