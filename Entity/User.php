@@ -17,7 +17,7 @@ class User {
         $stmt->bindParam(":email", $email);
         $stmt->execute();
 
-        return ($stmt->rowCount() > 0);
+        return ($stmt->fetchColumn(0) > 0) ? true : false;
     }
 
     public function insert($data) {
