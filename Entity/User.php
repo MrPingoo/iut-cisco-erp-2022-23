@@ -12,16 +12,12 @@ class User {
     }
 
     public function isExisting($email) {
+        $query = "SELECT COUNT(*) as nb FROM user WHERE email=:email";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(":email", $email);
+        $stmt->execute();
 
-        /*
-    $query = "SELECT COUNT(*) as nb FROM user WHERE email=:email";
-    $stmt = $db->prepare($query);
-    $email = $data['email'];
-    $stmt->bindParam(":email", $email);
-            $stmt->execute();
-
-    $num = $stmt->fetchColumn(0);
-         */
+        return ($stmt->rowCount() > 0);
     }
 
     public function insert($data) {
@@ -44,10 +40,12 @@ class User {
 
             // execute query
             if ($stmt->execute()) {
-                return ['messae' => 'ok'];
+                return ['message' => 'ok'];
             } else {
-                return ['messae' => 'ko'];
+                return ['message' => 'ko'];
             }
+        } else {
+            return ['message' => 'ko'];
         }
     }
 }
