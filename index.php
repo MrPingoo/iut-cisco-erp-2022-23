@@ -1,9 +1,12 @@
 <?php
+header("Content-Type: application/json; charset=UTF-8");
+
 // get database connection
 include_once './config/database.php';
 
 // Entities
 include_once './Entity/User.php';
+include_once './Entity/Subject.php';
 
 $database = new Database();
 $db = $database->getConnection();
@@ -18,6 +21,11 @@ switch ($ressource) {
         $user = new User($db);
         http_response_code(200);
         echo json_encode($user->insert($data));
+        break;
+    case "Subject":
+        $subject = new Subject($db);
+        http_response_code(200);
+        echo json_encode($subject->getAll());
         break;
     default:
         http_response_code(404);
