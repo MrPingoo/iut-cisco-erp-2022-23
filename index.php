@@ -7,6 +7,7 @@ include_once './config/database.php';
 // Entities
 include_once './Entity/User.php';
 include_once './Entity/Subject.php';
+include_once './Entity/Lvl.php';
 
 $database = new Database();
 $db = $database->getConnection();
@@ -24,6 +25,11 @@ switch ($ressource) {
         break;
     case "Subject":
         $subject = new Subject($db);
+        http_response_code(200);
+        echo json_encode($subject->getAll());
+        break;
+    case "Lvl":
+        $subject = new Lvl($db);
         http_response_code(200);
         echo json_encode($subject->getAll());
         break;
