@@ -3,9 +3,9 @@
 class Database{
 
     private $host = "localhost:3306";
-    private $db_name = "db_105";
-    private $username = "db_105";
-    private $password = "Mubuntu$105";
+    private $db_name = "db_108";
+    private $username = "db_108";
+    private $password = "Mubuntu$108";
     public $conn;
 
     public function getConnection(){
