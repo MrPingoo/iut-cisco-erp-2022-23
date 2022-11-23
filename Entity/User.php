@@ -12,7 +12,6 @@ class User {
     }
 
     public function isExisting($email) {
-        
         $query = "SELECT COUNT(*) as nb FROM user WHERE email=:email";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":email", $email);
