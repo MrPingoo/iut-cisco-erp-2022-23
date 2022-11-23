@@ -20,4 +20,13 @@ INSERT INTO `subject` (`id`, `name`) VALUES
 (14,	'Méthodologie'),
 (15,	'Sciences de l\'ingénieur');
 
+INSERT INTO `lvl` (`id`, `name`, `value`) VALUES
+(1,	'6ème',	1),
+(2,	'5ème',	2),
+(3,	'4ème',	3),
+(4,	'3ème',	4),
+(5,	'2nd',	5),
+(6,	'1er',	6),
+(7,	'Term',	7);
+
 -- 2022-11-07 16:21:48
