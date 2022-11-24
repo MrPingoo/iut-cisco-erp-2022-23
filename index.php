@@ -29,9 +29,9 @@ switch ($ressource) {
         echo json_encode($subject->getAll());
         break;
     case "Lvl":
-        $subject = new Lvl($db);
+        $lvl = new Lvl($db);
         http_response_code(200);
-        echo json_encode($subject->getAll());
+        echo json_encode($lvl->getAll());
         break;
     default:
         http_response_code(404);
