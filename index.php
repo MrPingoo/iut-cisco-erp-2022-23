@@ -21,7 +21,13 @@ switch ($ressource) {
     case "User":
         $user = new User($db);
         http_response_code(200);
-        echo json_encode($user->insert($data));
+        if ($action == 'register') {
+            echo json_encode($user->insert($data));
+        } elseif ($action == 'login') {
+            echo json_encode($user->login($data));
+        } elseif ($action == 'Info') {
+            echo json_encode($user->isValid($_SERVER['HTTP_TOKEN']));
+        }
         break;
     case "Subject":
         $subject = new Subject($db);

@@ -1,14 +1,17 @@
 <?php
+include_once './config/JWT.php';
 
 class User {
 
     private $tableName;
     private $db;
+    private $jwt;
 
     public function __construct($db)
     {
         $this->tableName = 'user';
         $this->db = $db;
+        $this->jwt = new JWT;
     }
 
     public function isExisting($email) {
@@ -47,5 +50,28 @@ class User {
         } else {
             return ['message' => 'ko'];
         }
+    }
+
+    public function login($data) {
+        $email = $data['email'];
+        $password = $data['password'];
+
+        $query = "SELECT id FROM user WHERE email=:email AND password=:password";
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":password", $password);
+
+        $stmt->execute();
+
+        $id = $stmt->fetchColumn(0);
+
+        if ($id){
+            return ['token' => $this->jwt->createToken($id)];
+        }
+    }
+
+    public function isValid($token) {
+        return $this->jwt->validateToken($token);
     }
 }
