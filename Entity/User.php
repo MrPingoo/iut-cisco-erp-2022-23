@@ -12,7 +12,12 @@ class User {
     }
 
     public function isExisting($email) {
-        return true;
+        $query = "SELECT COUNT(*) as nb FROM user WHERE email=:email";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(":email", $email);
+        $stmt->execute();
+
+        return ($stmt->fetchColumn(0) > 0) ? true : false;
     }
 
     public function insert($data) {
