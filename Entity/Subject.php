@@ -3,11 +3,13 @@
 class Subject {
     private $tableName;
     private $db;
+    private $user;
 
-    public function __construct($db)
+    public function __construct($db, $user)
     {
         $this->tableName = 'subject';
         $this->db = $db;
+        $this->user = $user;
     }
 
     public function getAll(){

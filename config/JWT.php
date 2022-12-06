@@ -17,6 +17,9 @@ class JWT {
     public static function validateToken($token) {
          $base64 = explode(".", $token);
 
-         return json_decode(base64_decode($base64[1]))->user_id;
+         if (isset($base64[1])) {
+             return intval(json_decode(base64_decode($base64[1]))->user_id);
+         }
+         return null;
     }
 }

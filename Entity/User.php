@@ -6,12 +6,14 @@ class User {
     private $tableName;
     private $db;
     private $jwt;
+    private $user;
 
-    public function __construct($db)
+    public function __construct($db, $user)
     {
         $this->tableName = 'user';
         $this->db = $db;
         $this->jwt = new JWT;
+        $this->user = $user;
     }
 
     public function isExisting($email) {
@@ -21,6 +23,15 @@ class User {
         $stmt->execute();
 
         return ($stmt->fetchColumn(0) > 0) ? true : false;
+    }
+
+    public function getInfo() {
+        $query = "SELECT email, firstname, lastname FROM user WHERE id=:user LIMIT 1";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(":user", $this->user);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function insert($data) {

@@ -3,11 +3,13 @@
 class Lvl {
     private $tableName;
     private $db;
+    private $user;
 
-    public function __construct($db)
+    public function __construct($db, $user)
     {
         $this->tableName = 'lvl';
         $this->db = $db;
+        $this->user = $user;
     }
 
     public function getAll(){
