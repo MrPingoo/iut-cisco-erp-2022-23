@@ -1,5 +1,14 @@
 <?php
-
+/*
+SELECT * FROM slot
+INNER JOIN slot_has_subject ON slot_has_subject.slot_id = slot.id
+WHERE slot_has_subject.lvl_id IN (SELECT lvl.id FROM lvl WHERE lvl.value >= 3)
+AND slot_has_subject.subject_id IN (2, 1)
+AND slot.begin >= "2022-11-06 15:00:00"
+AND slot.end <= "2023-11-06 15:00:00"
+AND slot.id NOT IN (SELECT booking.slot_id FROM booking WHERE booking.student_id = 1)
+;
+ */
 class Booking {
 
     private $tableName;
