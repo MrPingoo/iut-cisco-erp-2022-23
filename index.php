@@ -10,6 +10,7 @@ include_once './Entity/Subject.php';
 include_once './Entity/Lvl.php';
 include_once './Entity/Student.php';
 include_once './Entity/Booking.php';
+include_once './Entity/Slot.php';
 
 $database = new Database();
 $db = $database->getConnection();
@@ -70,6 +71,12 @@ $config = [
             'name' => 'getAll',
             'logged' => true,
         ]
+    ],
+    'Slot' => [
+        'search' => [
+            'name' => 'search',
+            'logged' => true,
+        ],
     ],
 ];
 
