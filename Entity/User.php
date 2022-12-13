@@ -1,11 +1,13 @@
 <?php
 include_once './config/JWT.php';
+include_once './config/JWT_FIREBASE.php';
 
 class User {
 
     private $tableName;
     private $db;
     private $jwt;
+    private $jwtFirebase;
     private $user;
 
     public function __construct($db, $user)
@@ -13,6 +15,7 @@ class User {
         $this->tableName = 'user';
         $this->db = $db;
         $this->jwt = new JWT;
+        $this->jwtFirebase = new JWT_FIREBASE;
         $this->user = $user;
     }
 
@@ -78,7 +81,7 @@ class User {
         $id = $stmt->fetchColumn(0);
 
         if ($id){
-            return ['token' => $this->jwt->createToken($id)];
+            return ['token' => $this->jwtFirebase->createToken($id)];
         }
     }
 
