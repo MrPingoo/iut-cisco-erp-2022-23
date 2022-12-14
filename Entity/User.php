@@ -81,7 +81,7 @@ class User {
         $id = $stmt->fetchColumn(0);
 
         if ($id){
-            return ['token' => $this->jwtFirebase->createToken($id)];
+            return ['token' => $this->jwt->createToken($id)];
         }
     }
 
