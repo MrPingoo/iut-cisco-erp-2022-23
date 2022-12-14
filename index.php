@@ -90,6 +90,8 @@ if (isset($config[$ressource][$action])) {
             echo json_encode(['message' => 'Wrong user']);
         } else {
             http_response_code(200);
+            // $user = new User($db, $idUser);
+            // echo json_encode($user->getInfo($data));
             $object = new $ressource($db, $idUser);
             $functionName = $config[$ressource][$action]['name'];
             echo json_encode($object->$functionName($data));
